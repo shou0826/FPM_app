@@ -1,0 +1,15 @@
+<div class="main">
+	<h1 class="users-title container">ユーザー一覧ページ</h1>
+	<div class="users-content">
+		<% @user.each do |user| %>
+			<div class="users-index-content container users-hover">
+				<%= link_to "/users/#{user.id}" do %>
+					<h3 class="users-name"><%= user.name %></h3>
+					<span class="users-updated"><%= user.created_at.to_s(:datetime) %></span>
+					<p>Email:<%= user.email %></p>
+					<p>password:<%= user.password %></p>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+</div>

@@ -1,0 +1,12 @@
+<div class="main">
+	<h1 class="container dm-title">DM一覧</h1>
+	<div class="dm-items container">
+	<% @dm.each do |dm| %>
+		<div>
+			<% @user_name1 = User.find_by(id: dm.user1) %>
+			<% @user_name2 = User.find_by(id: dm.user2) %>
+			<%= link_to("#{@user_name1.name}と#{@user_name2.name}のDM","/rooms/#{dm.id}") %>
+		</div>
+	<% end %>
+	</div>
+</div>

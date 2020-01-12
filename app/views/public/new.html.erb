@@ -1,0 +1,9 @@
+<div class="main">
+	<h1 class="public-title container">ゲスト投稿ページ</h1>
+	<div class="public-content container">
+		<%= form_tag("/public/create") do %>
+			<textarea rows="15px" cols="60px" name="text" placeholder="ゲスト募集またはゲスト参加希望の旨の投稿をしましょう"></textarea>
+			<input type="submit" value="投稿する">
+		<% end %>
+	</div>
+</div>

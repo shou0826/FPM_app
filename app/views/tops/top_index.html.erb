@@ -1,0 +1,19 @@
+<!-- layouts/top_index.html.erbのyeildに当たる部分 -->
+<!-- 現時点では何も書く必要がないので空白 -->
+
+<div class="background">
+	<h1 class="top_title">FPMへようこそ！</h1>
+
+	<div class="top_info">
+		<h4 class="top_info_title">FPMとは</h4>
+		<p>FIFA Proclub Matching</p>
+		<p class="top_info_B">FIFAプロクラブの固定チームとプレイヤーを<br>マッチングさせることに特化したWebサービスです</p>
+		<p class="top_info_C">無料ですぐに登録できます！</p>
+	</div>
+
+	<div class="top_link">
+		<p>新規登録・ログインはこちらから</p>
+		<%= link_to("新規登録","/users/signup") %>
+		<%= link_to("ログイン","/users/login") %>
+	</div>
+</div>

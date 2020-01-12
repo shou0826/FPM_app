@@ -1,0 +1,24 @@
+<div class="main">
+	<h1 class="public-title container">ゲスト募集/ゲスト参加ページ</h1>
+	<div class="public-content">			<div class="container public-form">
+			<%= form_tag("/public/create") do %>
+			<textarea class="textarea" rows="3px" cols="75%" name="text" placeholder="ゲスト募集またはゲスト参加希望の旨の投稿をしましょう"></textarea>
+			<input type="submit" class="public-btn" value="投稿する">
+			<% end %>
+		</div>
+
+		<div class="blank"></div>
+
+		<div>
+			<% @public.each do |public| %>
+				<div class="public-text container">
+					<%= link_to "/public/#{public.id}" do %>
+					<h4 class="users-name"><%= public.name %></h4>
+					<span class="public-updated"><%= public.updated_at.to_s(:datetime) %></span>
+					<p class="text"><%= public.text %></p>
+					<% end %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

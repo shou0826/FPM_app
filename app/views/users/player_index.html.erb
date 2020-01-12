@@ -1,0 +1,23 @@
+<div class="main player-index-background">
+	<h1 class="users-title">プレイヤー一覧ページ</h1>
+	<div class="users-content">
+		<% @profile.each do |profile| %>
+			<div class="container users-hover">
+				<%= link_to "/users/#{profile.user_id}" do %>
+				<h4 class="users-name"><%= profile.user_name %></h4>
+				<span class="users-updated"><%= profile.updated_at.to_s(:datetime) %></span>
+				<p>PS ID：<%= profile.ps_id %></p>
+				<p>第１希望ポジション：<%= profile.first_position %></p>
+				<p>第２希望ポジション：<%= profile.second_position %></p>
+				<P>第３希望ポジション：<%= profile.third_position %></P>
+				<p>IN率：<%= profile.attendance %></p>
+				<p>活動可能時間帯：<%= profile.time_zone %>~<%= profile.time_zone_rear %></p>
+				<p>VCの可否：<%= profile.vc %></p>
+				<p>希望リーグ：<%= profile.ligue %></p>
+				<p>アピールポイント：<%= profile.text %></p>
+				<div class="profile-end"></div>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+</div>

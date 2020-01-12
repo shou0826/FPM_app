@@ -1,0 +1,22 @@
+<div class="main">
+	<h1 class="dm-title container">DM Room</h1>
+	<div class="dm-items container">
+		<p><%= @user1.name %>と<%= @user2.name %>さんのDM</p>
+	</div>
+
+	<div id="messages">
+		<ul>
+			<%= render @messages %>
+		</ul>
+		<br><br>
+	</div>
+
+	<div class="form-footer">
+		<form class="form-inline">
+			<div class="form-group">
+				<input type="text" class="form-control" id="chat_input"/>
+			</div>
+			<button class="btn btn-primary" id="button">送信</button>
+		</form>
+	</div>
+</div>

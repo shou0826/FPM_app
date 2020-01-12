@@ -1,0 +1,10 @@
+<div class="main">
+	<h1 class="public-title container">ゲスト投稿詳細ページ</h1>
+	<div class="public-content container">
+		<h3 class="users-name"><%= @public.name %></h3>
+		<span class="public-updated"><%= @public.updated_at.to_s(:datetime) %></span>
+		<p class="public-show-text"><%= @public.text %></p>
+		<%= link_to("編集する","/public/#{@public.id}/edit") %>
+		<%= link_to("削除する","/public/#{@public.id}/destroy",method: :post) %>
+	</div>
+</div>

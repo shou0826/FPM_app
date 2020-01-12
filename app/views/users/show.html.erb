@@ -1,0 +1,79 @@
+<div class="main">
+	<h1 class="users-title">ユーザー詳細ページ</h1>
+	<div class="container user-details users-content">
+		<div class="user-name">
+			<%= @user.name %>
+			<% if @user.id == @current_user.id %>
+				<%= link_to("編集する","/users/#{@user.id}/edit") %>
+				<%= link_to("削除する","/users/#{@user.id}/destroy",method: :post) %>
+			<% end %>
+		</div>
+		<%= @user.created_at.to_s(:datetime) %>から利用しています。
+	</div>
+
+	<div class="blank"></div>
+
+	<div class="container">
+		<div>
+			<% if @user.id == @current_user.id %>
+				<%= link_to("DM一覧","/rooms/#{@user.id}/index") %>
+			<% else %>
+				<% if @dm.find_by(user1: @user.id, user2: @current_user.id) %>
+					<% @find_dm1 = @dm.find_by(user1: @user.id, user2: @current_user.id) %>
+					<%= link_to("DMページへ","/rooms/#{@find_dm1.id}") %>
+				<% elsif @dm.find_by(user1: @current_user.id, user2: @user.id) %>
+					<% @find_dm2 = @dm.find_by(user1: @current_user.id, user2: @user.id) %>
+					<%= link_to("DMページへ","/rooms/#{@find_dm2.id}") %>
+				<% else %>
+					<%= link_to("DMを送る","/rooms/#{@user.id}/create",method: :post) %>
+				<% end %>
+			<% end %>
+		</div>
+
+		<div>
+			<% if @user.id == @current_user.id %>
+				いいね！された数：<%= @like_count %>
+			<% else %>
+				<% if @like %>
+					<%= link_to("いいね！を取り消す","/likes/#{@user.id}/destroy",method: :post) %>
+					<%= @like_count %>
+				<% else %>
+					<%= link_to("いいね！する","/likes/#{@user.id}/create",method: :post) %>
+					<%= @like_count %>
+				<% end %>
+			<% end %>
+		</div>
+
+		<div>
+			<p>いいね！したユーザー一覧</p>
+			<% @like_index.each do |index| %>
+				<li><%= link_to(index.active_user_name,"/users/#{index.active_user}") %></li>
+			<% end %>
+		</div>
+	</div>
+
+	<div class="blank"></div>
+
+	<div class="container">
+		<% if @profile %>
+			<h5>プロフィール</h5>
+			<p>名前：<%= @profile.user_name %></p>
+			<p>PS ID：<%= @profile.ps_id %></p>
+			<p>第１希望ポジション：<%= @profile.first_position %></p>
+			<p>第２希望ポジション：<%= @profile.second_position %></p>
+			<P>第３希望ポジション：<%= @profile.third_position %></P>
+			<p>IN率：<%= @profile.attendance %></p>
+			<p>活動可能時間帯：<%= @profile.time_zone %>~<%= @profile.time_zone_rear %></p>
+			<p>VCの可否：<%= @profile.vc %></p>
+			<p>希望リーグ：<%= @profile.ligue %></p>
+			<p>アピールポイント：<%= @profile.text %></p>
+			<% if @user.id == @current_user.id %>
+				<p><%= link_to("プロフィールを編集する","/users/#{@user.id}/edit_content") 
+				%></p>
+			<% end %>
+		<% else %>
+			<p>まだプロフィールが設定されていません</p>
+			<%= link_to("プロフィールを設定する","/users/#{@user.id}/new") %>
+		<% end %>
+	</div>
+</div>

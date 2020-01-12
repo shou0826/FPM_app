@@ -1,0 +1,26 @@
+// Place all the styles related to the rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.dm-title {
+	border-bottom: solid 1px #CCCCCC;
+	position: fixed;
+	top: 30px;
+	width: 50%;
+	z-index: 1;
+	background-color: white;
+	height: 50px;
+}
+
+.dm-items {
+	margin-top: 50px;
+}
+
+.form-footer {
+	position: fixed;
+	bottom: 50px;
+	right: 30%;
+	z-index: 1;
+	background-color: white;
+	height:5px;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NewFpmApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= include_gon %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header class="header_menu">
+      <% if session[:user_id] %>
+        <%= link_to("ユーザー一覧(管理用)","/users/index") %>
+        <%= link_to("プレイヤー一覧","/users/player_index") %>
+        <%= link_to("ログアウト","/users/logout",method: :post) %>
+        <%= link_to(@current_user.name,"/users/#{@current_user.id}") %>
+        <%= link_to("ゲスト","/public/index") %>
+      <% else %>
+        <%= link_to("トップ","/") %>
+        <%= link_to("新規登録","/users/signup") %>
+        <%= link_to("ログイン","/users/login") %>
+      <% end %>
+    </header>
+
+    <% if flash[:notice] %>
+      <div id="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    
+    <div class="flexbox">
+      <div class="left album">
+        <img class="img1" height="100%" width="100%" src="/barcelona.jpeg">
+        <img class="img2" height="100%" width="100%" src="/Atletico.jpg">
+        <img class="img3" height="100%" width="100%" src="/Intel.jpg">
+        <img class="img4" height="100%" width="100%" src="/Bayern.png">
+        <img class="img5" height="100%" width="100%" src="/ManU.jpg">
+        <img class="img6" height="100%" width="100%" src="/Arsenal.jpg">
+        <img class="img7" height="100%" width="100%" src="/LFC.jpg">
+      </div>
+
+      <%= yield %>
+
+      <div class="right album">
+        <img class="img1" height="100%" width="100%" src="/RealMadrid.jpg">
+        <img class="r-img2" height="100%" width="100%" src="/Juve.jpg">
+        <img class="r-img3" height="100%" width="100%" src="/Milan.jpeg">
+        <img class="r-img4" height="100%" width="100%" src="/BVB.jpg">
+        <img class="r-img5" height="100%" width="100%" src="/ManC.jpg">
+        <img class="r-img6" height="100%" width="100%" src="/Chelsea.jpg">
+        <img class="r-img7" height="100%" width="100%" src="/Spurs.jpeg">
+      </div>
+      </div>
+    </div>
+  </body>
+</html>

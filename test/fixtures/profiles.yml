@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  user_name: MyString
+  ps_id: MyString
+  1st_position: MyString
+  2nd_position: MyString
+  3rd_position: MyString
+  attendance: MyString
+  time_zone: MyString
+  vc: MyString
+  ligue: MyString
+  text: MyText
+
+two:
+  user_id: 
+  user_name: MyString
+  ps_id: MyString
+  1st_position: MyString
+  2nd_position: MyString
+  3rd_position: MyString
+  attendance: MyString
+  time_zone: MyString
+  vc: MyString
+  ligue: MyString
+  text: MyText

@@ -1,0 +1,9 @@
+<div class="main">
+	<h1 class="public-title container">ゲスト投稿編集ページ</h1>
+	<div class="public-content container">
+		<%= form_tag("/public/#{@public.id}/update") do %>
+			<textarea class="public-edit-text" rows="15px" cols="60px" name="text"><%= @public.text %></textarea>
+			<input type="submit" class="public-btn" value="保存する">
+		<% end %>
+	</div>
+</div>

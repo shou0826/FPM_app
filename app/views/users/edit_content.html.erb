@@ -1,0 +1,117 @@
+<div class="main">
+	<h1 class="users-title container">プロフィール編集画面</h1>
+	<div class="users-content container">
+		<%= form_tag("/users/#{@user.id}/update_content") do %>
+		<div class="profile_edit_content">
+			<p>PS ID</p>
+			<input name="ps_id" placeholder="PS IDを入力してください" value="<%= @profile.ps_id %>">
+
+			<p>第1希望ポジション</p>
+			<select name="first_position">
+				<option>ST</option>
+				<option>WG</option>
+				<option>CAM</option>
+				<option>CM</option>
+				<option>CDM</option>
+				<option>SB</option>
+				<option>CB</option>
+				<option>GK</option>
+				<option selected><%= @profile.first_position %></option>
+			</select>
+			<p>第2希望ポジション</p>
+			<select name="second_position">
+				<option>ー</option>
+				<option>ST</option>
+				<option>WG</option>
+				<option>CAM</option>
+				<option>CM</option>
+				<option>CDM</option>
+				<option>SB</option>
+				<option>CB</option>
+				<option>GK</option>
+				<% if @profile.second_position != "ー" %>
+					<option selected><%= @profile.second_position %></option>
+				<% end %>
+			</select>
+			<p>第3希望ポジション</p>
+			<select name="third_position">
+				<option>ー</option>
+				<option>ST</option>
+				<option>WG</option>
+				<option>CAM</option>
+				<option>CM</option>
+				<option>CDM</option>
+				<option>SB</option>
+				<option>CB</option>
+				<option>GK</option>
+				<% if @profile.third_position != "ー" %>
+					<option selected><%= @profile.second_position %></option>
+				<% end %>
+			</select>
+
+			<p>IN率</p>
+			<select name="attendance">
+				<option>週1-2</option>
+				<option>週2-3</option>
+				<option>週3-4</option>
+				<option>週4-5</option>
+				<option>週5-6</option>
+				<option>週6-7</option>
+				<option selected><%= @profile.attendance %></option>
+			</select>
+
+			<p>IN時間帯</p>
+			<select name="time_zone">
+				<option>18時</option>
+				<option>19時</option>
+				<option>20時</option>
+				<option>21時</option>
+				<option>22時</option>
+				<option>23時</option>
+				<option>24時</option>
+				<option>25時</option>
+				<option>26時</option>
+				<option>27時</option>
+				<option selected><%= @profile.time_zone %></option>
+			</select>〜
+			<select name="time_zone_rear">
+				<option>18時</option>
+				<option>19時</option>
+				<option>20時</option>
+				<option>21時</option>
+				<option>22時</option>
+				<option>23時</option>
+				<option>24時</option>
+				<option>25時</option>
+				<option>26時</option>
+				<option>27時</option>
+				<option selected><%= @profile.time_zone_rear %></option>
+			</select>
+
+			<p>VC可否</p>
+			<select name="vc">
+				<option>可</option>
+				<option>不可</option>
+				<option>聞き専</option>
+				<option selected><%= @profile.vc %></option>
+			</select>
+
+			<p>リーグの希望</p>
+			<select name="ligue">
+				<option>特になし</option>
+				<option>JSL</option>
+				<option>ラスレオ</option>
+				<option>Gリーグ</option>
+				<option>RAL</option>
+				<option selected><%= @profile.ligue %></option>
+			</select>
+
+			<p>アピールポイント</p>
+			<textarea name="text" rows="15px" cols="60px"><%= @profile.text %></textarea>
+
+
+			<input type="submit" value="保存する">
+		</div>
+		<% end %>
+	</div>
+</div>
